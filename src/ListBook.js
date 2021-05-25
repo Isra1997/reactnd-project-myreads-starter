@@ -19,10 +19,9 @@ class ListBook extends Component{
 
 
     render(){
-        console.log(this.props.books);
         return(<div className="bookshelf-books">
             <ol className="books-grid">
-                {this.props.books.filter((book)=>( typeof book.authors !== 'undefined' && typeof book.imageLinks.smallThumbnail !== 'undefined')).map((book,index)=>(
+                {this.props.books.filter((book)=>(  book.hasOwnProperty('authors') && typeof book.imageLinks && book.hasOwnProperty('imageLinks'))).map((book,index)=>(
                     <li key={index}>
                       <div className="book">
                           <div className="book-top">

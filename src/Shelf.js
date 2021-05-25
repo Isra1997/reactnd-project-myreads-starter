@@ -16,13 +16,11 @@ class Shelf extends React.Component{
     }
 
     render(){
-        console.log(this.props.allbooks);
         return(
         <div className="list-books-content">
             {this.state.shelves.map((Shelf, index)=>(
                  <div className="bookshelf" key={index}>
                      <h2 className="bookshelf-title">{Shelf}</h2>
-                     {console.log()}
                      <ListBook allbooks={this.props.allbooks}   books={this.filterBooks(this.cleanShelfName(Shelf))} onChangeShelf={this.props.onChangeShelf}/>
                  </div>
     ))}

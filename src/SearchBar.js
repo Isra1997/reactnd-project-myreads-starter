@@ -25,7 +25,9 @@ class SearchBar extends React.Component{
         
     }})
 }else{
-    console.log("OPPS");
+    this.setState({
+        quriedBooks:[]
+    })
 }
 
     }

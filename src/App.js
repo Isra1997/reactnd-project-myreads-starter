@@ -25,22 +25,22 @@ class BooksApp extends Component {
     })
   }
 
-  changeBookShelf=(book,shelf,all)=>{
-
-    const index = all.findIndex(b => b.id === book.id)
-    BooksAPI.update(book,shelf).then((book)=>{
-      if(index=== -1){
-        all = all.concat(book)
+  changeBookShelf=(bo,shelf,all)=>{
+    const index = all.findIndex(b => b.id === bo.id)
+    BooksAPI.update(bo,shelf).then((book)=>{
+      if(index === -1){
+        console.log('inserted book');
+        all = all.concat(bo)
       }else{
         all[index].shelf=shelf
       }
+      console.log(all);
       this.setState(()=>({allbooks:all}))
     })
    
   }
 
   componentDidMount(){
-    console.log("Calling book API ...");
     this.getBooks();
   }
 
