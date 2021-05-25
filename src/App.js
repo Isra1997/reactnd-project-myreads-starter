@@ -27,16 +27,19 @@ class BooksApp extends Component {
 
   changeBookShelf=(bo,shelf,all)=>{
     const index = all.findIndex(b => b.id === bo.id)
-    BooksAPI.update(bo,shelf).then((book)=>{
-      if(index === -1){
-        console.log('inserted book');
-        all = all.concat(bo)
-        all[all.length - 1].shelf = shelf
-      }else{
-        all[index].shelf=shelf
-      }
-    })
+    
+    if(index === -1){
+      console.log('inserted book');
+      all = all.concat(bo)
+      all[all.length-1].shelf = shelf
+    }else{
+      all[index].shelf=shelf
+    }
     this.setState({allbooks:all})
+
+    BooksAPI.update(bo,shelf).then((book)=>{
+    })
+    
   }
 
   componentDidMount(){
