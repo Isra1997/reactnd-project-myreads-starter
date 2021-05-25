@@ -31,13 +31,12 @@ class BooksApp extends Component {
       if(index === -1){
         console.log('inserted book');
         all = all.concat(bo)
+        all[all.length - 1].shelf = shelf
       }else{
         all[index].shelf=shelf
       }
-      console.log(all);
-      this.setState(()=>({allbooks:all}))
     })
-   
+    this.setState({allbooks:all})
   }
 
   componentDidMount(){
