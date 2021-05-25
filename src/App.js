@@ -27,9 +27,8 @@ class BooksApp extends Component {
 
   changeBookShelf=(bo,shelf,all)=>{
     const index = all.findIndex(b => b.id === bo.id)
-    
+
     if(index === -1){
-      console.log('inserted book');
       all = all.concat(bo)
       all[all.length-1].shelf = shelf
     }else{
